@@ -1,0 +1,51 @@
+id,question,category,expected_scope,system_scope,scope_correct,intended,n_relevant_test,p10,np10,mrr
+q50-00,Which attempts ended up in the back of the net?,single,in,in,1,outcome=ended in a goal,151,1.0,1.0,1.0
+q50-01,Chances that were stopped by the keeper,single,in,in,1,outcome=was saved,356,1.0,1.0,1.0
+q50-02,Efforts that flew wide or over,single,in,in,1,outcome=missed the target,544,1.0,1.0,1.0
+q50-03,Any shots a defender got in the way of?,single,in,in,1,outcome=was blocked,429,1.0,1.0,1.0
+q50-04,Headers,single,in,in,1,body=head,269,1.0,1.0,1.0
+q50-05,Strikes taken from outside the area,single,in,in,1,area=outside the box,531,1.0,1.0,1.0
+q50-06,What shots came from the right-hand side?,single,in,in,1,side=right,240,1.0,1.0,1.0
+q50-07,Left-footed attempts,single,in,in,1,body=left foot,486,1.0,1.0,1.0
+q50-08,Long-range efforts that the goalkeeper saved,two,in,in,1,area=outside the box;outcome=was saved,124,1.0,1.0,1.0
+q50-09,Headed goals,two,in,in,1,body=head;outcome=ended in a goal,25,1.0,1.0,1.0
+q50-10,Close-range shots that were blocked,two,in,in,1,area=inside the box;outcome=was blocked,225,1.0,1.0,1.0
+q50-11,Right-footed chances from the left channel,two,in,in,1,body=right foot;side=left,163,1.0,1.0,1.0
+q50-12,Which central shots found the net?,two,in,in,1,side=central;outcome=ended in a goal,120,1.0,1.0,1.0
+q50-13,Left-footed efforts from inside the box that went off target,two,in,in,1,body=left foot;area=inside the box;outcome=missed the target,70,1.0,1.0,1.0
+q50-14,Efforts from distance that went over the bar,two,in,in,1,area=outside the box;outcome=missed the target,188,1.0,1.0,1.0
+q50-15,Headers the goalkeeper had to deal with,two,in,in,1,body=head;outcome=was saved,65,1.0,1.0,1.0
+q50-16,Right-footed long-range goals from the right side,multi,in,in,1,body=right foot;area=outside the box;side=right;outcome=ended in a goal,1,0.1,1.0,1.0
+q50-17,Left-footed shots from a central position inside the box that were saved,multi,in,in,1,body=left foot;side=central;area=inside the box;outcome=was saved,27,1.0,1.0,1.0
+q50-18,Headers from the left that were blocked,multi,in,in,1,body=head;side=left;outcome=was blocked,0,,,
+q50-19,"Right foot, outside the area, central, missed the target",multi,in,in,1,body=right foot;area=outside the box;side=central;outcome=missed the target,74,1.0,1.0,1.0
+q50-20,Goals scored with the left foot from inside the area on the right,multi,in,in,1,body=left foot;area=inside the box;side=right;outcome=ended in a goal,2,0.2,1.0,1.0
+q50-21,Saved headers from inside the box in the middle,multi,in,in,1,body=head;area=inside the box;side=central;outcome=was saved,60,1.0,1.0,1.0
+q50-22,What did Barcelona's goals look like?,team,in,in,1,team=Barcelona;outcome=ended in a goal,7,0.7,1.0,1.0
+q50-23,Bayer Leverkusen headers,team,in,in,1,team=Bayer Leverkusen;body=head,16,1.0,1.0,1.0
+q50-24,Spain Women's efforts from outside the box,team,in,in,1,team=Spain Women's;area=outside the box,43,1.0,1.0,1.0
+q50-25,Which Brazil shots were saved?,team,in,in,1,team=Brazil;outcome=was saved,14,1.0,1.0,1.0
+q50-26,Italy right-footed attempts that got blocked,team,in,in,1,team=Italy;body=right foot;outcome=was blocked,4,0.4,1.0,1.0
+q50-27,Paris Saint-Germain chances from the left,team,in,in,1,team=Paris Saint-Germain;side=left,10,1.0,1.0,1.0
+q50-28,Screamers from miles out,colloquial,in,out,0,area=outside the box,531,1.0,1.0,1.0
+q50-29,Simple finishes from a yard or two out,colloquial,in,out,0,area=inside the box;outcome=ended in a goal,136,1.0,1.0,1.0
+q50-30,Strikes that were smothered before they got near the goal,colloquial,in,in,1,outcome=was blocked,429,0.0,0.0,0.0
+q50-31,Stuff that went straight at the keeper and got palmed away,colloquial,in,in,1,outcome=was saved,356,0.2,0.2,1.0
+q50-32,Shots nobody could stop,colloquial,in,in,1,outcome=ended in a goal,151,0.0,0.0,0.0
+q50-33,Wild efforts that ended up in the stands,colloquial,in,in,1,outcome=missed the target,544,0.0,0.0,0.0
+q50-34,Who won the 2018 World Cup?,offtopic_football,out,out,1,,,,,
+q50-35,Explain the offside rule,offtopic_football,out,out,1,,,,,
+q50-36,What is the best formation to play against a 4-4-2?,offtopic_football,out,out,1,,,,,
+q50-37,How many players are on a football team?,offtopic_football,out,out,1,,,,,
+q50-38,When does Barcelona play next?,offtopic_football,out,in,0,,,,,
+q50-39,How much did Real Madrid pay for their latest signing?,offtopic_football,out,in,0,,,,,
+q50-40,Give me tips to improve my penalty technique,offtopic_football,out,out,1,,,,,
+q50-41,What is the history of the Premier League?,offtopic_football,out,out,1,,,,,
+q50-42,Messi's left-footed goals,unsupported,partial,partial,1,body=left foot;outcome=ended in a goal,56,1.0,1.0,1.0
+q50-43,Shots by Harry Kane,unsupported,out,out,1,,,,,
+q50-44,Goals scored in the 90th minute,unsupported,out,partial,0,,,,,
+q50-45,Headers in the first half,unsupported,partial,partial,1,body=head,269,1.0,1.0,1.0
+q50-46,What did Lewandowski do from inside the box?,unsupported,partial,partial,1,area=inside the box,949,1.0,1.0,1.0
+q50-47,Saved shots in the last ten minutes,unsupported,partial,partial,1,outcome=was saved,356,1.0,1.0,1.0
+q50-48,Which player had the most shots?,unsupported,out,in,0,,,,,
+q50-49,Shots after minute 80 by Spain Women's,unsupported,partial,partial,1,team=Spain Women's,128,1.0,1.0,1.0

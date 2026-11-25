@@ -1,0 +1,145 @@
+{
+ "n": 50,
+ "scope_accuracy": 0.88,
+ "by_category": {
+  "colloquial": {
+   "n": 6,
+   "scope_correct": 4,
+   "np10": [
+    0.3666666666666667,
+    6
+   ],
+   "mrr": [
+    0.5,
+    6
+   ],
+   "p10": [
+    0.3666666666666667,
+    6
+   ]
+  },
+  "multi": {
+   "n": 6,
+   "scope_correct": 6,
+   "np10": [
+    1.0,
+    5
+   ],
+   "mrr": [
+    1.0,
+    5
+   ],
+   "p10": [
+    0.66,
+    5
+   ]
+  },
+  "offtopic_football": {
+   "n": 8,
+   "scope_correct": 6,
+   "np10": [
+    null,
+    0
+   ],
+   "mrr": [
+    null,
+    0
+   ],
+   "p10": [
+    null,
+    0
+   ]
+  },
+  "single": {
+   "n": 8,
+   "scope_correct": 8,
+   "np10": [
+    1.0,
+    8
+   ],
+   "mrr": [
+    1.0,
+    8
+   ],
+   "p10": [
+    1.0,
+    8
+   ]
+  },
+  "team": {
+   "n": 6,
+   "scope_correct": 6,
+   "np10": [
+    1.0,
+    6
+   ],
+   "mrr": [
+    1.0,
+    6
+   ],
+   "p10": [
+    0.8500000000000001,
+    6
+   ]
+  },
+  "two": {
+   "n": 8,
+   "scope_correct": 8,
+   "np10": [
+    1.0,
+    8
+   ],
+   "mrr": [
+    1.0,
+    8
+   ],
+   "p10": [
+    1.0,
+    8
+   ]
+  },
+  "unsupported": {
+   "n": 8,
+   "scope_correct": 6,
+   "np10": [
+    1.0,
+    5
+   ],
+   "mrr": [
+    1.0,
+    5
+   ],
+   "p10": [
+    1.0,
+    5
+   ]
+  }
+ },
+ "confusion": {
+  "expected_in->system_in": 32,
+  "expected_in->system_out": 2,
+  "expected_out->system_out": 7,
+  "expected_out->system_in": 3,
+  "expected_partial->system_partial": 5,
+  "expected_out->system_partial": 1
+ },
+ "unscoreable_no_relevant_test_shot": [
+  "q50-18"
+ ],
+ "retrieval_in_or_partial": {
+  "n": 38,
+  "np10": [
+   0.9,
+   38
+  ],
+  "mrr": [
+   0.9210526315789473,
+   38
+  ],
+  "p10": [
+   0.8315789473684211,
+   38
+  ],
+  "queries_with_zero_relevant_in_top10": 3
+ }
+}

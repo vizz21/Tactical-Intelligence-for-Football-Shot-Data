@@ -1,0 +1,16 @@
+{
+  "split": "train",
+  "n_inputs": 1000,
+  "n_written": 1000,
+  "first_pass_passed": 995,
+  "first_pass_rate": 0.995,
+  "passed_after_regeneration": 4,
+  "dropped_after_regeneration": 1,
+  "n_final": 999,
+  "by_mode": {
+    "answer": 899,
+    "partial": 16,
+    "refuse": 84
+  },
+  "target_source": "AI-generated: written by Claude (claude-sonnet-5-5) from the evidence block, kept only if the grounding checker passes"
+}

@@ -1,0 +1,9 @@
+{
+ "python": "3.14.6",
+ "torch": "2.14.1+cu130",
+ "transformers": "5.20.2",
+ "queries_sha256": "ccb158fd0d8a65aa6d7c1fc704768c64ddc26acab3a9da22c82e71cf286368d9",
+ "k": 10,
+ "split": "test_only",
+ "device": "cpu"
+}

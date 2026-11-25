@@ -1,0 +1,403 @@
+{
+ "split": "eval",
+ "n": 143,
+ "decoding": {
+  "num_beams": 4,
+  "max_new_tokens": 128,
+  "no_repeat_ngram_size": 3,
+  "do_sample": false
+ },
+ "B_wording": "B3",
+ "results": {
+  "A": {
+   "all": {
+    "n": 143,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.08391608391608392,
+    "refusal_rate": 0.055944055944055944,
+    "has_citation": 0.0,
+    "flag_counts": {
+     "xg": 130,
+     "citation": 130,
+     "format": 141,
+     "unsupported_name": 6,
+     "unsupported_team": 4,
+     "unsupported_area": 1,
+     "unsupported_body part": 2,
+     "unsupported_side": 4,
+     "outcome": 2
+    }
+   },
+   "answer": {
+    "n": 126,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.0,
+    "refusal_rate": 0.06349206349206349,
+    "has_citation": 0.0,
+    "flag_counts": {
+     "xg": 126,
+     "citation": 126,
+     "format": 124,
+     "unsupported_name": 5,
+     "unsupported_team": 4,
+     "unsupported_area": 1,
+     "unsupported_body part": 2,
+     "unsupported_side": 3,
+     "outcome": 2
+    }
+   },
+   "partial": {
+    "n": 4,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.0,
+    "refusal_rate": 0.0,
+    "has_citation": 0.0,
+    "flag_counts": {
+     "xg": 4,
+     "citation": 4,
+     "format": 4,
+     "unsupported_side": 1
+    }
+   },
+   "refuse": {
+    "n": 13,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.9230769230769231,
+    "refusal_rate": 0.0,
+    "has_citation": 0.0,
+    "flag_counts": {
+     "format": 13,
+     "unsupported_name": 1
+    }
+   },
+   "supported_answer_or_partial": {
+    "n": 130,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.0,
+    "refusal_rate": 0.06153846153846154,
+    "has_citation": 0.0,
+    "flag_counts": {
+     "xg": 130,
+     "citation": 130,
+     "format": 128,
+     "unsupported_name": 5,
+     "unsupported_team": 4,
+     "unsupported_area": 1,
+     "unsupported_body part": 2,
+     "unsupported_side": 4,
+     "outcome": 2
+    }
+   },
+   "by_kind": {
+    "fresh_far": {
+     "n": 13,
+     "strict_pass": 0.0,
+     "flag_counts": {
+      "format": 13,
+      "xg": 11,
+      "citation": 11,
+      "unsupported_side": 1
+     }
+    },
+    "fresh_near": {
+     "n": 15,
+     "strict_pass": 0.0,
+     "flag_counts": {
+      "xg": 15,
+      "outcome": 2,
+      "citation": 15,
+      "format": 15,
+      "unsupported_side": 1
+     }
+    },
+    "off_topic": {
+     "n": 5,
+     "strict_pass": 0.0,
+     "flag_counts": {
+      "format": 5
+     }
+    },
+    "partial": {
+     "n": 4,
+     "strict_pass": 0.0,
+     "flag_counts": {
+      "xg": 4,
+      "citation": 4,
+      "format": 4,
+      "unsupported_side": 1
+     }
+    },
+    "template": {
+     "n": 100,
+     "strict_pass": 0.0,
+     "flag_counts": {
+      "xg": 100,
+      "citation": 100,
+      "format": 98,
+      "unsupported_name": 5,
+      "unsupported_team": 4,
+      "unsupported_area": 1,
+      "unsupported_body part": 2,
+      "unsupported_side": 1
+     }
+    },
+    "unsupported_minute": {
+     "n": 3,
+     "strict_pass": 0.0,
+     "flag_counts": {
+      "format": 3
+     }
+    },
+    "unsupported_player": {
+     "n": 3,
+     "strict_pass": 0.0,
+     "flag_counts": {
+      "format": 3,
+      "unsupported_name": 1
+     }
+    }
+   }
+  },
+  "B": {
+   "all": {
+    "n": 143,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.08391608391608392,
+    "refusal_rate": 0.006993006993006993,
+    "has_citation": 0.02097902097902098,
+    "flag_counts": {
+     "xg": 127,
+     "citation": 127,
+     "format": 143,
+     "unsupported_name": 5
+    }
+   },
+   "answer": {
+    "n": 126,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.0,
+    "refusal_rate": 0.0,
+    "has_citation": 0.023809523809523808,
+    "flag_counts": {
+     "xg": 124,
+     "citation": 123,
+     "format": 126,
+     "unsupported_name": 3
+    }
+   },
+   "partial": {
+    "n": 4,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.0,
+    "refusal_rate": 0.0,
+    "has_citation": 0.0,
+    "flag_counts": {
+     "unsupported_name": 1,
+     "citation": 4,
+     "format": 4,
+     "xg": 3
+    }
+   },
+   "refuse": {
+    "n": 13,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.9230769230769231,
+    "refusal_rate": 0.07692307692307693,
+    "has_citation": 0.0,
+    "flag_counts": {
+     "format": 13,
+     "unsupported_name": 1
+    }
+   },
+   "supported_answer_or_partial": {
+    "n": 130,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.0,
+    "refusal_rate": 0.0,
+    "has_citation": 0.023076923076923078,
+    "flag_counts": {
+     "xg": 127,
+     "citation": 127,
+     "format": 130,
+     "unsupported_name": 4
+    }
+   },
+   "by_kind": {
+    "fresh_far": {
+     "n": 13,
+     "strict_pass": 0.0,
+     "flag_counts": {
+      "format": 13,
+      "xg": 11,
+      "citation": 10,
+      "unsupported_name": 1
+     }
+    },
+    "fresh_near": {
+     "n": 15,
+     "strict_pass": 0.0,
+     "flag_counts": {
+      "xg": 14,
+      "citation": 13,
+      "format": 15,
+      "unsupported_name": 2
+     }
+    },
+    "off_topic": {
+     "n": 5,
+     "strict_pass": 0.0,
+     "flag_counts": {
+      "format": 5
+     }
+    },
+    "partial": {
+     "n": 4,
+     "strict_pass": 0.0,
+     "flag_counts": {
+      "unsupported_name": 1,
+      "citation": 4,
+      "format": 4,
+      "xg": 3
+     }
+    },
+    "template": {
+     "n": 100,
+     "strict_pass": 0.0,
+     "flag_counts": {
+      "xg": 99,
+      "citation": 100,
+      "format": 100
+     }
+    },
+    "unsupported_minute": {
+     "n": 3,
+     "strict_pass": 0.0,
+     "flag_counts": {
+      "format": 3,
+      "unsupported_name": 1
+     }
+    },
+    "unsupported_player": {
+     "n": 3,
+     "strict_pass": 0.0,
+     "flag_counts": {
+      "format": 3
+     }
+    }
+   }
+  },
+  "C": {
+   "all": {
+    "n": 143,
+    "strict_pass": 0.8951048951048951,
+    "grounding_only_pass": 0.8951048951048951,
+    "refusal_rate": 0.4195804195804196,
+    "has_citation": 0.9090909090909091,
+    "flag_counts": {
+     "outcome": 3,
+     "unsupported_body part": 1,
+     "xg": 4,
+     "unsupported_side": 1,
+     "unsupported_name": 6,
+     "unsupported_team": 1
+    }
+   },
+   "answer": {
+    "n": 126,
+    "strict_pass": 0.8809523809523809,
+    "grounding_only_pass": 0.8809523809523809,
+    "refusal_rate": 0.3412698412698413,
+    "has_citation": 1.0,
+    "flag_counts": {
+     "outcome": 3,
+     "unsupported_body part": 1,
+     "xg": 4,
+     "unsupported_side": 1,
+     "unsupported_name": 6,
+     "unsupported_team": 1
+    }
+   },
+   "partial": {
+    "n": 4,
+    "strict_pass": 1.0,
+    "grounding_only_pass": 1.0,
+    "refusal_rate": 1.0,
+    "has_citation": 1.0,
+    "flag_counts": {}
+   },
+   "refuse": {
+    "n": 13,
+    "strict_pass": 1.0,
+    "grounding_only_pass": 1.0,
+    "refusal_rate": 1.0,
+    "has_citation": 0.0,
+    "flag_counts": {}
+   },
+   "supported_answer_or_partial": {
+    "n": 130,
+    "strict_pass": 0.8846153846153846,
+    "grounding_only_pass": 0.8846153846153846,
+    "refusal_rate": 0.36153846153846153,
+    "has_citation": 1.0,
+    "flag_counts": {
+     "outcome": 3,
+     "unsupported_body part": 1,
+     "xg": 4,
+     "unsupported_side": 1,
+     "unsupported_name": 6,
+     "unsupported_team": 1
+    }
+   },
+   "by_kind": {
+    "fresh_far": {
+     "n": 13,
+     "strict_pass": 0.7692307692307693,
+     "flag_counts": {
+      "outcome": 1,
+      "xg": 1,
+      "unsupported_name": 1
+     }
+    },
+    "fresh_near": {
+     "n": 15,
+     "strict_pass": 0.9333333333333333,
+     "flag_counts": {
+      "unsupported_name": 1
+     }
+    },
+    "off_topic": {
+     "n": 5,
+     "strict_pass": 1.0,
+     "flag_counts": {}
+    },
+    "partial": {
+     "n": 4,
+     "strict_pass": 1.0,
+     "flag_counts": {}
+    },
+    "template": {
+     "n": 100,
+     "strict_pass": 0.89,
+     "flag_counts": {
+      "outcome": 2,
+      "unsupported_body part": 1,
+      "xg": 3,
+      "unsupported_side": 1,
+      "unsupported_name": 4,
+      "unsupported_team": 1
+     }
+    },
+    "unsupported_minute": {
+     "n": 3,
+     "strict_pass": 1.0,
+     "flag_counts": {}
+    },
+    "unsupported_player": {
+     "n": 3,
+     "strict_pass": 1.0,
+     "flag_counts": {}
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,86 @@
+{
+ "C": {
+  "n": 50,
+  "strict_pass": 45,
+  "by_category": {
+   "colloquial": {
+    "n": 6,
+    "strict_pass": 6
+   },
+   "multi": {
+    "n": 6,
+    "strict_pass": 6
+   },
+   "offtopic_football": {
+    "n": 8,
+    "strict_pass": 8
+   },
+   "single": {
+    "n": 8,
+    "strict_pass": 7
+   },
+   "team": {
+    "n": 6,
+    "strict_pass": 5
+   },
+   "two": {
+    "n": 8,
+    "strict_pass": 7
+   },
+   "unsupported": {
+    "n": 8,
+    "strict_pass": 6
+   }
+  },
+  "flags": {
+   "xg": 1,
+   "format": 3,
+   "unsupported_name": 1
+  },
+  "out_of_scope_expected": {
+   "n": 11,
+   "text_refused": 7
+  },
+  "in_scope_refused": 2
+ },
+ "D": {
+  "n": 50,
+  "strict_pass": 50,
+  "by_category": {
+   "colloquial": {
+    "n": 6,
+    "strict_pass": 6
+   },
+   "multi": {
+    "n": 6,
+    "strict_pass": 6
+   },
+   "offtopic_football": {
+    "n": 8,
+    "strict_pass": 8
+   },
+   "single": {
+    "n": 8,
+    "strict_pass": 8
+   },
+   "team": {
+    "n": 6,
+    "strict_pass": 6
+   },
+   "two": {
+    "n": 8,
+    "strict_pass": 8
+   },
+   "unsupported": {
+    "n": 8,
+    "strict_pass": 8
+   }
+  },
+  "flags": {},
+  "out_of_scope_expected": {
+   "n": 11,
+   "text_refused": 7
+  },
+  "in_scope_refused": 2
+ }
+}

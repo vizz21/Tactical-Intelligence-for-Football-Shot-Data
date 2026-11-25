@@ -1,0 +1,25 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+.venv
+
+# Raw and derived data (regenerate: scripts/fetch_events.py, notebook 01, scripts/phase4_build_all.py)
+open-data/
+data/
+
+# Trained models and indexes (regenerate: notebooks 02/03, scripts/phase2_train.py, scripts/phase4_build_all.py)
+models/
+
+# Large result files (the small csv/json/png summaries in results/ stay tracked)
+results/**/*.npz
+results/**/*.pt
+results/**/bm25_val.npy

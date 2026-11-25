@@ -1,0 +1,120 @@
+{
+  "n_unique_val_template_queries": 2196,
+  "nP@10_full_index": 0.998887587822014,
+  "nP@10_val_corpus": 0.999048775551508,
+  "n_queries_below_1.0_full_index": 15,
+  "median_n_relevant_full_index": 37.0,
+  "top1_sim_val_template": {
+    "min": 0.5065242052078247,
+    "p5": 0.6203552484512329,
+    "median": 0.7345138192176819,
+    "max": 0.8614488840103149
+  },
+  "low_confidence_threshold": 0.6203552484512329,
+  "para_dev": {
+    "n": 18,
+    "nP@10": 0.9888888888888889,
+    "share_below_threshold": 0.16666666666666666,
+    "mean_top1_sim_if_nP10_eq_1": 0.6809625941164353,
+    "mean_top1_sim_if_nP10_lt_1": 0.6643024682998657,
+    "rows": [
+      {
+        "query": "headers from the left wing the keeper saved",
+        "top1_sim": 0.7739129066467285,
+        "nP@10": 1.0
+      },
+      {
+        "query": "goals scored inside the penalty area",
+        "top1_sim": 0.6593871116638184,
+        "nP@10": 1.0
+      },
+      {
+        "query": "shots the keeper stopped from the middle of the pitch area",
+        "top1_sim": 0.5571271181106567,
+        "nP@10": 1.0
+      },
+      {
+        "query": "England Women's attempts blocked inside the area",
+        "top1_sim": 0.734849214553833,
+        "nP@10": 1.0
+      },
+      {
+        "query": "Denmark headers that found the net",
+        "top1_sim": 0.7212120890617371,
+        "nP@10": 1.0
+      },
+      {
+        "query": "saved attempts from outside the penalty area on the left",
+        "top1_sim": 0.7519842386245728,
+        "nP@10": 1.0
+      },
+      {
+        "query": "right foot shots from the centre that were stopped by the goalkeeper",
+        "top1_sim": 0.637744665145874,
+        "nP@10": 1.0
+      },
+      {
+        "query": "central headers that ended up in the net",
+        "top1_sim": 0.5891963839530945,
+        "nP@10": 1.0
+      },
+      {
+        "query": "England Women's goals with the right foot",
+        "top1_sim": 0.7720536589622498,
+        "nP@10": 1.0
+      },
+      {
+        "query": "wayward headers from the right",
+        "top1_sim": 0.7431726455688477,
+        "nP@10": 1.0
+      },
+      {
+        "query": "left-footed attempts inside the 18-yard box that missed",
+        "top1_sim": 0.5696882605552673,
+        "nP@10": 1.0
+      },
+      {
+        "query": "Spain Women's headers",
+        "top1_sim": 0.7036431431770325,
+        "nP@10": 1.0
+      },
+      {
+        "query": "shots from the left with the right foot that went in",
+        "top1_sim": 0.694110631942749,
+        "nP@10": 1.0
+      },
+      {
+        "query": "Denmark long shots that missed the target",
+        "top1_sim": 0.6643024682998657,
+        "nP@10": 0.8
+      },
+      {
+        "query": "right-footed chances from the centre of the box",
+        "top1_sim": 0.6260310411453247,
+        "nP@10": 1.0
+      },
+      {
+        "query": "left-foot efforts from the right side that the keeper held",
+        "top1_sim": 0.7025489807128906,
+        "nP@10": 1.0
+      },
+      {
+        "query": "Spain Women's blocked shots",
+        "top1_sim": 0.6932854652404785,
+        "nP@10": 1.0
+      },
+      {
+        "query": "saved left-footers",
+        "top1_sim": 0.6464165449142456,
+        "nP@10": 1.0
+      }
+    ]
+  },
+  "out_of_scope_top1_sim": {
+    "what is the weather in Paris tomorrow": 0.3750108480453491,
+    "who won the world cup in 2010": 0.3547731041908264,
+    "recipe for chocolate cake": 0.2905645966529846,
+    "free kicks taken in minute 85": 0.2650716304779053,
+    "all shots by Lionel Messi": 0.29838013648986816
+  }
+}

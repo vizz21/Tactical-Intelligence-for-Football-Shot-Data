@@ -1,0 +1,14 @@
+{
+  "chosen": "ANN",
+  "reason": "no clear log-loss difference -> simpler model",
+  "posthoc_calibration": "raw",
+  "cnn_minus_ann_logloss": 0.008294999599456787,
+  "two_x_seed_sd": 0.0030022437397217217,
+  "bootstrap_cnn_minus_ann": {
+    "mean": 0.008174964417318442,
+    "ci_low": -0.003647825957670722,
+    "ci_high": 0.020197150199748562
+  },
+  "val_goals": 146,
+  "val_shots": 1463
+}

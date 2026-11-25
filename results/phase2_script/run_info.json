@@ -1,0 +1,81 @@
+{
+  "timestamp_utc": "2026-10-20T04:56:01+00:00",
+  "args": {
+    "seeds": 5,
+    "out": "results/phase2_script",
+    "device": "auto",
+    "ann_hidden": [
+      32
+    ],
+    "ann_dropout": 0.3,
+    "ann_lr": 0.001,
+    "cnn_ch": [
+      16,
+      32
+    ],
+    "cnn_k": 3,
+    "cnn_dropout": 0.5,
+    "cnn_lr": 0.0003,
+    "weight_decay": 0.0001,
+    "max_epochs": null,
+    "bootstrap": 2000
+  },
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "python": "3.14.6",
+  "torch": "2.14.1+cu130",
+  "cuda": "13.0",
+  "numpy": "2.5.3",
+  "pandas": "3.0.6",
+  "scikit_learn": "1.9.1",
+  "cudnn_deterministic": true,
+  "input_sha256": {
+    "tabular.csv": "e3fab1347118cef3be4c18a041c8a86d9d5437dc41be0f2284532afa785032a2",
+    "spatial.npz": "4f0ae0b72ae3f64626a30908b6e16ee2390b4ff6bedb4e3a3c2ac73b5557db46",
+    "splits.csv": "fe468ddadcfd0b14b0ab15c2b2822d0debc6df4541203807a4f58749b3609a9b"
+  },
+  "shots_per_split": {
+    "train": 7290,
+    "val": 1463,
+    "test": 1480
+  },
+  "total_seconds": 225,
+  "results": [
+    {
+      "model": "constant",
+      "val_log_loss": "0.3247",
+      "val_auc": "0.5000",
+      "val_brier": "0.0898",
+      "test_log_loss": "0.3295",
+      "test_auc": "0.5000",
+      "test_brier": "0.0916"
+    },
+    {
+      "model": "logistic",
+      "val_log_loss": "0.2760",
+      "val_auc": "0.7797",
+      "val_brier": "0.0789",
+      "test_log_loss": "0.2799",
+      "test_auc": "0.7802",
+      "test_brier": "0.0806"
+    },
+    {
+      "model": "ANN",
+      "val_log_loss": "0.2769 \u00b1 0.0005",
+      "val_auc": "0.7755 \u00b1 0.0023",
+      "val_brier": "0.0792 \u00b1 0.0001",
+      "test_log_loss": "0.2802 \u00b1 0.0015",
+      "test_auc": "0.7799 \u00b1 0.0042",
+      "test_brier": "0.0810 \u00b1 0.0004"
+    },
+    {
+      "model": "CNN",
+      "val_log_loss": "0.2854 \u00b1 0.0015",
+      "val_auc": "0.7537 \u00b1 0.0040",
+      "val_brier": "0.0816 \u00b1 0.0004",
+      "test_log_loss": "0.2855 \u00b1 0.0016",
+      "test_auc": "0.7632 \u00b1 0.0052",
+      "test_brier": "0.0816 \u00b1 0.0003"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+ "n": 60,
+ "n_with_evidence": 54,
+ "raw_strict_pass": 56,
+ "final_strict_pass": 60,
+ "raw_with_group_error": 35,
+ "final_with_group_error": 0,
+ "fallback": 36,
+ "fallback_with_evidence": 36,
+ "kept_from_model": 24,
+ "fallback_reasons": {
+  "group:highest_value": 25,
+  "group:ordering": 24,
+  "group:all_foot": 2,
+  "group:all_area": 4,
+  "group:all_side": 3,
+  "xG mismatch": 2,
+  "group:attribution_team": 2,
+  "group:all_outcome": 2,
+  "unsupported": 2,
+  "partial answer does not mention the unsupported part": 1
+ }
+}

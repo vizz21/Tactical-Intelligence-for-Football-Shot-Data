@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shot search with xG</title>
+<style>
+  :root { --navy: #17324d; --teal: #168c83; --teal-soft: #e6f4f2; --gold: #e4a72e; --gold-soft: #fff6dc; --line: #dfe5e8; --muted: #66727b; --bg: #f5f7f8; }
+  * { box-sizing: border-box; }
+  body { font: 16px/1.6 system-ui, "Segoe UI", sans-serif; margin: 0; color: #1d2a33; background: var(--bg); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 2.2rem 1.25rem 4rem; }
+  h1 { font-size: 2.1rem; margin: 0 0 .2rem; color: var(--navy); letter-spacing: -.01em; }
+  .sub { color: var(--muted); margin: 0 0 1.6rem; font-size: 1.02rem; }
+  .muted { color: var(--muted); }
+  .small { font-size: .9rem; }
+  button { font: inherit; cursor: pointer; }
+  nav { display: flex; gap: .6rem; margin-bottom: 1.8rem; }
+  nav button { padding: .7rem 1.6rem; font-size: 1.05rem; font-weight: 600; border: 2px solid var(--line); background: #fff; border-radius: 999px; color: var(--navy); }
+  nav button.on { background: var(--navy); border-color: var(--navy); color: #fff; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.4rem 1.5rem; margin-bottom: 1.4rem; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+  .card h2 { margin: 0 0 .9rem; font-size: 1.25rem; color: var(--navy); }
+  .searchbox { display: flex; flex-direction: column; gap: 1rem; }
+  input[type=text] { width: 100%; padding: .9rem 1.1rem; font: inherit; font-size: 1.1rem; border: 2px solid var(--line); border-radius: 12px; }
+  input[type=text]:focus, select:focus { outline: none; border-color: var(--teal); }
+  select { padding: .55rem .7rem; font: inherit; border: 2px solid var(--line); border-radius: 10px; background: #fff; max-width: 100%; }
+  .options { display: flex; flex-wrap: wrap; gap: 1.4rem; align-items: center; color: #3a4750; }
+  .options input[type=number] { width: 4.5rem; padding: .45rem .6rem; font: inherit; border: 2px solid var(--line); border-radius: 10px; }
+  .options label { display: flex; align-items: center; gap: .5rem; }
+  .actions { display: flex; flex-wrap: wrap; gap: .8rem; }
+  .btn { padding: .85rem 1.7rem; font-size: 1.05rem; font-weight: 600; border-radius: 12px; border: 2px solid var(--teal); background: var(--teal); color: #fff; }
+  .btn.alt { background: #fff; color: var(--teal); }
+  .btn:hover { filter: brightness(.95); }
+  .chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .2rem; align-items: center; }
+  .chip { padding: .3rem .8rem; border-radius: 999px; border: 1px solid var(--line); background: #fff; font-size: .9rem; color: #3a4750; }
+  .chip:hover { border-color: var(--teal); color: var(--teal); }
+  .notice { background: var(--gold-soft); border-left: 5px solid var(--gold); padding: .8rem 1.1rem; border-radius: 8px; margin: 0 0 1rem; }
+  .answer { border-left: 6px solid var(--teal); }
+  .answer.fallback { border-left-color: var(--gold); }
+  .badge { display: inline-block; padding: .2rem .8rem; border-radius: 999px; font-size: .85rem; font-weight: 700; background: var(--teal-soft); color: var(--teal); margin-bottom: .6rem; }
+  .badge.fb { background: var(--gold-soft); color: #9a6b00; }
+  .answer-text { font-size: 1.15rem; line-height: 1.65; margin: .2rem 0 .8rem; }
+  .cites { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .6rem; }
+  .cites a { padding: .2rem .7rem; background: var(--teal-soft); border-radius: 8px; text-decoration: none; color: var(--teal); font-size: .9rem; font-weight: 600; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 1.1rem; }
+  .stat { background: var(--bg); border-radius: 12px; padding: .9rem 1.1rem; }
+  .stat b { display: block; font-size: 1.5rem; color: var(--navy); line-height: 1.2; }
+  .stat span { color: var(--muted); font-size: .88rem; }
+  details.more { margin: .6rem 0 0; color: #3a4750; }
+  details.more summary { cursor: pointer; color: var(--teal); font-weight: 600; }
+  table { border-collapse: collapse; width: 100%; font-size: .95rem; }
+  th { text-align: left; font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); padding: .6rem .8rem; border-bottom: 2px solid var(--line); }
+  td { padding: .85rem .8rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:last-child td { border-bottom: 0; }
+  .tablewrap { overflow-x: auto; }
+  .num { white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .desc { color: #3a4750; font-size: .9rem; max-width: 36rem; }
+  .goal { display: inline-block; padding: .1rem .6rem; border-radius: 999px; font-weight: 700; font-size: .85rem; }
+  .goal.y { background: var(--teal-soft); color: var(--teal); } .goal.n { background: #eef0f1; color: var(--muted); }
+  code { background: #eef1f2; padding: 0 4px; border-radius: 4px; font-size: .82rem; white-space: nowrap; }
+  /* Evaluation: big accordion buttons */
+  details.acc { background: #fff; border: 1px solid var(--line); border-radius: 14px; margin-bottom: 1rem; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+  details.acc > summary { list-style: none; cursor: pointer; padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 1rem; border-radius: 14px; }
+  details.acc > summary::-webkit-details-marker { display: none; }
+  details.acc > summary:hover { background: #f1f7f7; }
+  .acc .num-badge { flex: none; width: 2.4rem; height: 2.4rem; border-radius: 50%; background: var(--navy); color: #fff; display: grid; place-items: center; font-weight: 700; }
+  .acc .head { flex: 1; }
+  .acc .head b { display: block; font-size: 1.3rem; color: var(--navy); line-height: 1.25; }
+  .acc .head span { color: var(--muted); font-size: .95rem; }
+  .acc .chev { font-size: 1.4rem; color: var(--teal); transition: transform .15s; }
+  details.acc[open] > summary .chev { transform: rotate(90deg); }
+  details.acc[open] > summary { border-bottom: 1px solid var(--line); border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+  .acc .body { padding: 1.3rem 1.6rem 1.6rem; }
+  .acc h4 { margin: 1.6rem 0 .3rem; font-size: 1.1rem; color: var(--navy); }
+  .acc h4:first-child { margin-top: 0; }
+  .acc .note { color: var(--muted); font-size: .93rem; margin: 0 0 .8rem; }
+  .bar { display: grid; grid-template-columns: minmax(180px, 38%) 1fr 150px; gap: 1rem; align-items: center; margin: .55rem 0; }
+  .bar .lab { font-size: .95rem; line-height: 1.35; }
+  .bar .track { position: relative; height: 18px; background: #eef2f3; border-radius: 9px; }
+  .bar .fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--gold); border-radius: 9px; }
+  .bar .ci { position: absolute; top: 8px; height: 2px; background: var(--navy); }
+  .bar .val { font-size: .9rem; line-height: 1.3; }
+  .raw { background: #f3f4f5; padding: .8rem 1rem; border-left: 5px solid #9aa4aa; border-radius: 8px; margin: .6rem 0; }
+  .final { background: var(--teal-soft); padding: .8rem 1rem; border-left: 5px solid var(--teal); border-radius: 8px; margin: .6rem 0; }
+  .demo-row { display: flex; flex-wrap: wrap; gap: .8rem; margin-bottom: .6rem; }
+  .demo-row input { flex: 1; min-width: 240px; }
+  ul.facts { margin: .2rem 0 1rem; padding-left: 1.2rem; } ul.facts li { margin-bottom: .45rem; }
+  .selrow { display: flex; flex-wrap: wrap; gap: .8rem; margin: .4rem 0; }
+  @media (max-width: 700px) { .bar { grid-template-columns: 1fr; gap: .3rem; } h1 { font-size: 1.7rem; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Shot search with xG</h1>
+<p class="sub">Ask about football shots and get matching events, their expected goals (xG) and a short cited answer.</p>
+<nav><button id="tab-s" class="on">Search</button><button id="tab-e">Evaluation</button></nav>
+
+<div id="view-search">
+  <form id="f" class="card">
+    <div class="searchbox">
+      <input type="text" id="q" value="headers from the left that were saved" aria-label="query" placeholder="e.g. right-footed goals from outside the box">
+      <div class="chips"><span class="muted small">Try:</span>
+        <button type="button" class="chip">Barcelona right-footed goals</button>
+        <button type="button" class="chip">saved shots from outside the box</button>
+        <button type="button" class="chip">Spain Women's left-footed shots from inside the box</button>
+        <button type="button" class="chip">blocked headers</button>
+      </div>
+      <div class="options">
+        <label>Results <input type="number" id="k" value="10" min="1" max="100" aria-label="k"></label>
+        <label><input type="checkbox" id="t" checked> Test split only</label>
+      </div>
+      <div class="actions">
+        <button class="btn">Search shots</button>
+        <button type="button" class="btn alt" id="ans">Get a cited answer</button>
+      </div>
+      <div class="muted small">Understands five attributes: team, body part, side, area (inside or outside the box) and outcome. Not minute, player or build-up.</div>
+    </div>
+  </form>
+  <div id="ansout"></div>
+  <div id="out"></div>
+</div>
+
+<div id="view-eval" hidden>
+  <p class="sub">Saved results from the project, grouped by topic. Click a heading to open it. Nothing is recomputed here.</p>
+  <div id="evbody">Loading...</div>
+</div>
+</div>
+
+<script>
+const out = document.getElementById("out");
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const post = (url, body) => fetch(url, {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(body)});
+
+document.querySelectorAll(".chip").forEach(b => b.onclick = () => { document.getElementById("q").value = b.textContent; });
+
+document.getElementById("f").addEventListener("submit", async e => {
+  e.preventDefault();
+  out.innerHTML = '<div class="card muted">Searching...</div>';
+  const r = await post("/search", {query: document.getElementById("q").value, k: +document.getElementById("k").value, test_only: document.getElementById("t").checked});
+  if (!r.ok) { out.innerHTML = `<div class="card">Error ${r.status}</div>`; return; }
+  const d = await r.json(), s = d.summary;
+  let h = s.messages.map(m => `<div class="notice">${esc(m)}</div>`).join("");
+  const und = Object.entries(s.understood).map(([k, v]) => `${k}: ${esc(v)}`).join(" · ") || "no attribute recognised";
+  h += `<div class="card"><h2>Results</h2><div class="stats">
+      <div class="stat"><b>${s.n_results}</b><span>shots shown</span></div>
+      <div class="stat"><b>${s.mean_xg?.toFixed(3) ?? "-"}</b><span>mean xG</span></div>
+      <div class="stat"><b>${s.n_goals}</b><span>actual goals</span></div>
+      <div class="stat"><b>${s.top_score.toFixed(2)}</b><span>best similarity</span></div></div>
+    <div><b>Understood as:</b> ${und}${s.not_specified.length ? ` <span class="muted">(not specified: ${s.not_specified.join(", ")})</span>` : ""}</div>
+    <details class="more"><summary>More about these numbers</summary>
+      <p class="small">Equally relevant shots are ranked in arbitrary order, so which of them reach the top results is arbitrary. ${s.n_above_threshold} shots in the searched pool (${s.test_only ? "test split" : "all splits"}) pass the similarity cut-off of ${s.threshold.toFixed(2)} (mean xG ${s.mean_xg_above_threshold?.toFixed(3) ?? "-"}); this is a similarity cut-off, not a count of matching shots. "Understood as" is a keyword match, a heuristic.</p></details>`;
+  if (d.evidence.length) {
+    h += '<div class="tablewrap"><table><tr><th>#</th><th>Shot</th><th>Min</th><th>Description</th><th>xG</th><th>Goal</th><th>Split</th><th>Source</th></tr>';
+    for (const e of d.evidence) {
+      h += `<tr><td class="num">${e.rank}</td><td><b>${esc(e.team)}</b><br><span class="muted small">${esc(e.player)}</span><br><span class="muted small">sim ${e.score.toFixed(3)}</span></td>
+        <td class="num">${e.minute}</td><td class="desc">${esc(e.document)}</td><td class="num"><b>${e.xg.toFixed(3)}</b>${e.in_sample ? " *" : ""}</td>
+        <td><span class="goal ${e.goal ? "y" : "n"}">${e.goal ? "goal" : "no"}</span></td>
+        <td class="num">${e.split}${e.split === "val" ? "<br><span class='muted small'>mildly optimistic</span>" : ""}</td>
+        <td><a href="/shot/${e.shot_id}" target="_blank">details</a><br><code>${esc(e.source.event_id.slice(0, 8))}</code></td></tr>`;
+    }
+    h += "</table></div><p class='muted small'>* in-sample xG (training shot). val: mildly optimistic, since validation data was used for early stopping and model choice. test: not used for training or choices. The full source file and event id are on the details page.</p>";
+  }
+  out.innerHTML = h + "</div>";
+});
+
+const ansOut = document.getElementById("ansout");
+document.getElementById("ans").addEventListener("click", async () => {
+  ansOut.innerHTML = '<div class="card muted">Writing an answer (the first call loads the model, about 10 seconds)...</div>';
+  const r = await post("/answer", {query: document.getElementById("q").value, test_only: document.getElementById("t").checked});
+  if (!r.ok) { ansOut.innerHTML = `<div class="card">Error ${r.status}</div>`; return; }
+  const d = await r.json(), m = d.source === "model";
+  const cites = Object.entries(d.citations).map(([n, id]) => `<a href="/shot/${id}" target="_blank">[${n}] ${esc(id.slice(0, 8))}</a>`).join("");
+  ansOut.innerHTML = `<div class="card answer ${m ? "" : "fallback"}"><span class="badge ${m ? "" : "fb"}">${m ? "Written by the fine-tuned model, checks passed" : "Rule-based answer: the model text failed a check"}</span>
+    <div class="answer-text">${esc(d.answer)}</div>${cites ? `<div class="cites">${cites}</div>` : ""}<div class="muted small">${esc(d.notice)}</div></div>`;
+});
+
+// ---- tabs
+const vs = document.getElementById("view-search"), ve = document.getElementById("view-eval");
+const tS = document.getElementById("tab-s"), tE = document.getElementById("tab-e");
+let evLoaded = false;
+function show(which) {
+  vs.hidden = which !== "s"; ve.hidden = which !== "e";
+  tS.classList.toggle("on", which === "s"); tE.classList.toggle("on", which === "e");
+  if (which === "e" && !evLoaded) { evLoaded = true; loadEval(); }
+}
+tS.onclick = () => show("s"); tE.onclick = () => show("e");
+const pct = x => (100 * x).toFixed(1) + "%";
+const tbl = (cols, rows) => '<div class="tablewrap"><table><tr>' + cols.map(c => `<th>${esc(c)}</th>`).join("") + "</tr>" + rows.map(r => "<tr>" + r.map(c => `<td>${esc(c)}</td>`).join("") + "</tr>").join("") + "</table></div>";
+const acc = (n, title, blurb, body, id) => `<details class="acc" ${id ? `id="${id}"` : ""}><summary><span class="num-badge">${n}</span><span class="head"><b>${esc(title)}</b><span>${esc(blurb)}</span></span><span class="chev">›</span></summary><div class="body">${body}</div></details>`;
+function section(s) {
+  let h = `<h4>${esc(s.title)}</h4><p class="note">${esc(s.note)}</p>`;
+  if (s.kind === "bars") {
+    for (const i of s.items) h += `<div class="bar"><div class="lab">${esc(i.label)}</div><div class="track"><div class="fill" style="width:${100 * i.value}%"></div><div class="ci" style="left:${100 * i.lo}%;width:${100 * (i.hi - i.lo)}%"></div></div><div class="val"><b>${pct(i.value)}</b> <span class="muted">(${pct(i.lo)} to ${pct(i.hi)})</span><br><span class="muted small">${esc(i.detail)}</span></div></div>`;
+  } else h += tbl(s.columns, s.rows);
+  return h;
+}
+
+// ---- ANN vs CNN section
+const COL = {logistic: "#2a78d6", ANN: "#eb6834", CNN: "#1baf7a"};
+function drawCalibration(cv, cal) {
+  const c = cv.getContext("2d"), W = cv.width, H = cv.height, m = 56, mx = 0.3;
+  c.clearRect(0, 0, W, H); c.font = "12px system-ui"; c.fillStyle = "#555"; c.strokeStyle = "#ccc";
+  const X = v => m + (W - 2 * m) * v / mx, Y = v => H - m - (H - 2 * m) * v / mx;
+  for (let t = 0; t <= 0.3001; t += 0.05) { c.beginPath(); c.moveTo(X(t), H - m); c.lineTo(X(t), m / 2); c.stroke();
+    c.beginPath(); c.moveTo(m, Y(t)); c.lineTo(W - m / 2, Y(t)); c.stroke(); c.fillText(t.toFixed(2), X(t) - 12, H - m + 16); c.fillText(t.toFixed(2), 24, Y(t) + 4); }
+  c.fillText("mean predicted goal probability", W / 2 - 80, H - 6); c.save(); c.translate(12, H / 2 + 45); c.rotate(-Math.PI / 2); c.fillText("observed goal rate", 0, 0); c.restore();
+  c.setLineDash([5, 4]); c.strokeStyle = "#888"; c.beginPath(); c.moveTo(X(0), Y(0)); c.lineTo(X(mx), Y(mx)); c.stroke(); c.setLineDash([]);
+  let ly = 24;
+  for (const [name, bins] of Object.entries(cal)) {
+    c.strokeStyle = c.fillStyle = COL[name]; c.lineWidth = 2; c.beginPath();
+    bins.forEach((b, i) => { i ? c.lineTo(X(b.mean_pred), Y(b.observed)) : c.moveTo(X(b.mean_pred), Y(b.observed)); }); c.stroke();
+    bins.forEach(b => { c.beginPath(); c.arc(X(b.mean_pred), Y(b.observed), 4, 0, 7); c.fill(); });
+    c.fillRect(m + 10, ly - 9, 12, 12); c.fillStyle = "#222"; c.fillText(name, m + 28, ly + 2); ly += 18;
+  }
+  c.lineWidth = 1;
+}
+function drawTensor(cv, d, ch) {
+  const c = cv.getContext("2d"), S = 10, T = d.tensor;
+  for (let y = 0; y < 40; y++) for (let x = 0; x < 60; x++) {
+    let col;
+    if (ch === "all") {
+      col = T[4][y][x] > 0.5 ? "#e9f1ea" : "#555";
+      if (T[1][y][x] > 0.5) col = "#d9534f"; if (T[0][y][x] > 0.5) col = "#2a6fd6"; if (T[2][y][x] > 0.5) col = "#f0c020"; if (T[3][y][x] > 0.5) col = "#000";
+    } else { const v = Math.max(0, Math.min(1, T[+ch][y][x])); const g = Math.round(255 * (1 - v)); col = `rgb(${g},${g},${g})`; }
+    c.fillStyle = col; c.fillRect(x * S, y * S, S - 1, S - 1);
+  }
+  c.strokeStyle = "#168c83"; c.lineWidth = 3; c.strokeRect(60 * S - 2, 15 * S, 2, 10 * S);
+}
+let cnnLoaded = false;
+async function loadCnn() {
+  const box = document.getElementById("cnnbox");
+  const r = await fetch("/evaluation/cnn");
+  if (!r.ok) { box.textContent = "Error " + r.status; return; }
+  const d = await r.json();
+  let h = '<ul class="facts">' + d.facts.map(f => `<li>${esc(f)}</li>`).join("") + "</ul>";
+  h += "<h4>Test results</h4><p class='note'>Left block: mean ± sd over 5 training seeds, as reported. Right block: the 5 seeds averaged into one prediction (slightly better; this is what the app uses).</p>" + tbl(d.summary.columns, d.summary.rows);
+  h += "<h4>Calibration on the test split</h4><p class='note'>Six equal-count bins of about " + d.calibration.ANN[0].n + " shots; about 15 goals in the top bin, so small wiggles are noise. The CNN's top bin predicts " + d.calibration.CNN[5].mean_pred.toFixed(3) + " against " + d.calibration.CNN[5].observed.toFixed(3) + " observed.</p><canvas id='cal' width='620' height='340'></canvas>";
+  h += "<h4>CNN architecture search</h4><p class='note'>Validation log-loss, notebook run; one factor varied at a time.</p>" + tbl(d.cnn_search.columns, d.cnn_search.rows);
+  h += `<h4>What the CNN sees: one test shot</h4><p class="note">Pitch seen from above, attacking to the right (goal marked in green). Blue attackers, red defenders, yellow goalkeeper, black shooter; dark grey is outside the 360 camera view (unknown, not empty).</p>
+    <div class="selrow"><select id="tsel">${d.sample_shots.map(s => `<option value="${s.shot_id}">${esc(s.label)}</option>`).join("")}</select>
+    <select id="tch"><option value="all">all channels (composite)</option>${d.channels.map((n, i) => `<option value="${i}">${i}: ${esc(n)}</option>`).join("")}</select></div>
+    <div id="tinfo" class="muted" style="margin:.4rem 0"></div><canvas id="tcv" width="600" height="400" style="max-width:100%;border:1px solid #ccc;border-radius:8px"></canvas>`;
+  box.innerHTML = h;
+  drawCalibration(document.getElementById("cal"), d.calibration);
+  let cur = null;
+  const draw = () => cur && drawTensor(document.getElementById("tcv"), cur, document.getElementById("tch").value);
+  const pick = async () => {
+    const id = document.getElementById("tsel").value, info = document.getElementById("tinfo");
+    info.textContent = "Loading...";
+    const t = await fetch("/spatial/" + id); if (!t.ok) { info.textContent = "Error " + t.status; return; }
+    cur = await t.json(); const p = cur.probabilities;
+    info.innerHTML = `${esc(cur.team)}, ${esc(cur.player)}, minute ${cur.minute}. Actual: <b>${cur.goal ? "goal" : "no goal"}</b>` + (p ? `. Predicted goal probability: logistic ${p.logistic.toFixed(3)}, ANN ${p.ANN.toFixed(3)}, CNN ${p.CNN.toFixed(3)}` : "");
+    draw();
+  };
+  document.getElementById("tsel").onchange = pick; document.getElementById("tch").onchange = draw; pick();
+}
+
+async function loadEval() {
+  const body = document.getElementById("evbody");
+  const r = await fetch("/evaluation");
+  if (!r.ok) { body.textContent = "Error " + r.status; return; }
+  const d = await r.json(), by = Object.fromEntries(d.sections.map(s => [s.id, s]));
+  const pick = ids => ids.filter(i => by[i]).map(i => section(by[i])).join("");
+  let h = acc(1, "Try the answer checker", "See what the model wrote and what the user is shown.",
+    `<div class="demo-row"><input type="text" id="vq" value="Spain Women's left-footed shots from inside the box" aria-label="verification question"><button class="btn" id="vrun">Run</button></div>
+     <div id="vout" class="muted">Runs the same path as "Get a cited answer" (test split). The first call loads the model.</div>`);
+  h += acc(2, "xG models", "Logistic regression, ANN and CNN on the test split.", pick(["xg", "xg_boot"]));
+  h += acc(3, "ANN versus CNN", "The spatial model: results, calibration and what it sees.", '<div id="cnnbox" class="muted">Open to load (the first call takes about 15 seconds).</div>', "acc-cnn");
+  h += acc(4, "Retrieval and scope", "How well questions find the right shots, and when the system refuses.", pick(["retr", "q50"]));
+  h += acc(5, "Answer generation", "The four arms compared on the fixed evaluation set.", pick(["gen", "gen_comp", "gen_type"]));
+  h += acc(6, "What the checker misses", "Audit results and the verify-and-fall-back fix.", pick(["faith"]));
+  h += acc(7, "Cautions", "Read these before quoting a number.", `<ul class="facts">${d.cautions.map(c => `<li>${esc(c)}</li>`).join("")}</ul>`);
+  body.innerHTML = h;
+  document.getElementById("acc-cnn").addEventListener("toggle", e => { if (e.target.open && !cnnLoaded) { cnnLoaded = true; loadCnn(); } });
+  document.getElementById("vrun").onclick = async () => {
+    const vo = document.getElementById("vout");
+    vo.textContent = "Generating...";
+    const rr = await post("/answer", {query: document.getElementById("vq").value, test_only: true});
+    if (!rr.ok) { vo.textContent = "Error " + rr.status; return; }
+    const a = await rr.json();
+    vo.innerHTML = `<div class="raw"><b>What the model wrote</b><br>${esc(a.raw_model_answer)}</div>
+      <div>${a.fallback_reasons.length ? "<b>Checks failed:</b> " + a.fallback_reasons.map(esc).join("; ") : "<b>All checks passed</b> (per-item checker and group-claim rules)"}</div>
+      <div class="final"><b>What the user is shown</b> (${a.source === "model" ? "model text" : "rule-based answer"})<br>${esc(a.answer)}</div>`;
+  };
+}
+</script>
+</body>
+</html>

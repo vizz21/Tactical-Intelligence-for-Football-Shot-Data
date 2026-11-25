@@ -1,0 +1,16 @@
+{
+ "seed": 42,
+ "decoding": {
+  "num_beams": 4,
+  "max_new_tokens": 128,
+  "no_repeat_ngram_size": 3,
+  "do_sample": false
+ },
+ "device": "cuda",
+ "torch": "2.14.1+cu130",
+ "transformers": "5.20.2",
+ "python": "3.14.6",
+ "queries_sha256": "78ca11a917c115377fcfb0ef93ae77b552ae081d08f3f3e05f632531bd6b7b4a",
+ "verify_py_sha256": "4477dc207eee149ed35f7b633b65bcf986a7d9b11cee8c06e7633718cab92dd9",
+ "armC_weights": "187454d13edaa096bd92c6a3215567298bb281846c352bbd5b819aa6c2572b76"
+}

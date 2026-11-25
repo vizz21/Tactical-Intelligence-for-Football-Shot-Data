@@ -1,0 +1,15 @@
+{
+ "seed": 42,
+ "decoding": {
+  "num_beams": 4,
+  "max_new_tokens": 128,
+  "no_repeat_ngram_size": 3,
+  "do_sample": false
+ },
+ "device": "cuda",
+ "torch": "2.14.1+cu130",
+ "transformers": "5.20.2",
+ "python": "3.14.6",
+ "inputs_sha256": "b6efae120f73740bdb2144a8ca8e09640b7c23d59df39e232d93e6e7f443ec55",
+ "armC_weights": "187454d13edaa096bd92c6a3215567298bb281846c352bbd5b819aa6c2572b76"
+}

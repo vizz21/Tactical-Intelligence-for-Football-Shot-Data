@@ -1,0 +1,289 @@
+{
+ "split": "val",
+ "model": "google/flan-t5-base",
+ "decoding": {
+  "num_beams": 4,
+  "max_new_tokens": 128,
+  "no_repeat_ngram_size": 3,
+  "do_sample": false
+ },
+ "prefixes": {
+  "B1": "Answer the question using only the evidence below. Cite the evidence as [1], [2], [3]. If the question cannot be answered from the evidence, say so.\n\n",
+  "B2": "You are a football shot assistant. Write 2 to 4 sentences. Use only facts that appear in the evidence: copy the xG values exactly, give the outcome as stated, and cite each shot with [1], [2] or [3]. If there is no evidence or the question is not about football shots, refuse and list what you can search by: team, body part, side, area and outcome.\n\n",
+  "B3": "Task: summarise the evidence for the question. Rules: do not add any player, team, minute or number that is not in the evidence; cite every shot as [n]; if the evidence is missing or does not match the question, reply that you cannot answer.\n\n"
+ },
+ "selected_B": "B3",
+ "selection_rule": "strict pass, then grounding-only pass, then fewer flags (val only)",
+ "results": {
+  "A": {
+   "all": {
+    "n": 100,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.08,
+    "refusal_rate": 0.06,
+    "has_citation": 0.0,
+    "flag_counts": {
+     "xg": 92,
+     "citation": 91,
+     "format": 100,
+     "unsupported_side": 3,
+     "outcome": 1,
+     "unsupported_name": 3,
+     "unsupported_body part": 2
+    }
+   },
+   "answer": {
+    "n": 90,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.0,
+    "refusal_rate": 0.06666666666666667,
+    "has_citation": 0.0,
+    "flag_counts": {
+     "xg": 90,
+     "citation": 90,
+     "format": 90,
+     "unsupported_side": 3,
+     "outcome": 1,
+     "unsupported_name": 3,
+     "unsupported_body part": 2
+    }
+   },
+   "partial": {
+    "n": 1,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.0,
+    "refusal_rate": 0.0,
+    "has_citation": 0.0,
+    "flag_counts": {
+     "xg": 1,
+     "citation": 1,
+     "format": 1
+    }
+   },
+   "refuse": {
+    "n": 9,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.8888888888888888,
+    "refusal_rate": 0.0,
+    "has_citation": 0.0,
+    "flag_counts": {
+     "xg": 1,
+     "format": 9
+    }
+   },
+   "supported_answer_or_partial": {
+    "n": 91,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.0,
+    "refusal_rate": 0.06593406593406594,
+    "has_citation": 0.0,
+    "flag_counts": {
+     "xg": 91,
+     "citation": 91,
+     "format": 91,
+     "unsupported_side": 3,
+     "outcome": 1,
+     "unsupported_name": 3,
+     "unsupported_body part": 2
+    }
+   }
+  },
+  "B1": {
+   "all": {
+    "n": 100,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.0,
+    "refusal_rate": 0.0,
+    "has_citation": 0.75,
+    "flag_counts": {
+     "xg": 86,
+     "format": 100,
+     "citation": 34,
+     "outcome": 1,
+     "unsupported_name": 1
+    }
+   },
+   "answer": {
+    "n": 90,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.0,
+    "refusal_rate": 0.0,
+    "has_citation": 0.7333333333333333,
+    "flag_counts": {
+     "xg": 86,
+     "format": 90,
+     "citation": 24
+    }
+   },
+   "partial": {
+    "n": 1,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.0,
+    "refusal_rate": 0.0,
+    "has_citation": 0.0,
+    "flag_counts": {
+     "outcome": 1,
+     "unsupported_name": 1,
+     "citation": 1,
+     "format": 1
+    }
+   },
+   "refuse": {
+    "n": 9,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.0,
+    "refusal_rate": 0.0,
+    "has_citation": 1.0,
+    "flag_counts": {
+     "citation": 9,
+     "format": 9
+    }
+   },
+   "supported_answer_or_partial": {
+    "n": 91,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.0,
+    "refusal_rate": 0.0,
+    "has_citation": 0.7252747252747253,
+    "flag_counts": {
+     "xg": 86,
+     "format": 91,
+     "citation": 25,
+     "outcome": 1,
+     "unsupported_name": 1
+    }
+   }
+  },
+  "B2": {
+   "all": {
+    "n": 100,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.02,
+    "refusal_rate": 0.0,
+    "has_citation": 0.95,
+    "flag_counts": {
+     "xg": 91,
+     "format": 100,
+     "citation": 8,
+     "unsupported_name": 1
+    }
+   },
+   "answer": {
+    "n": 90,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.0,
+    "refusal_rate": 0.0,
+    "has_citation": 0.9777777777777777,
+    "flag_counts": {
+     "xg": 90,
+     "format": 90,
+     "citation": 2
+    }
+   },
+   "partial": {
+    "n": 1,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.0,
+    "refusal_rate": 0.0,
+    "has_citation": 1.0,
+    "flag_counts": {
+     "xg": 1,
+     "format": 1
+    }
+   },
+   "refuse": {
+    "n": 9,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.2222222222222222,
+    "refusal_rate": 0.0,
+    "has_citation": 0.6666666666666666,
+    "flag_counts": {
+     "unsupported_name": 1,
+     "format": 9,
+     "citation": 6
+    }
+   },
+   "supported_answer_or_partial": {
+    "n": 91,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.0,
+    "refusal_rate": 0.0,
+    "has_citation": 0.978021978021978,
+    "flag_counts": {
+     "xg": 91,
+     "format": 91,
+     "citation": 2
+    }
+   }
+  },
+  "B3": {
+   "all": {
+    "n": 100,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.06,
+    "refusal_rate": 0.0,
+    "has_citation": 0.02,
+    "flag_counts": {
+     "xg": 88,
+     "citation": 90,
+     "format": 100,
+     "unsupported_name": 5,
+     "unsupported_minute": 1,
+     "outcome": 1
+    }
+   },
+   "answer": {
+    "n": 90,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.0,
+    "refusal_rate": 0.0,
+    "has_citation": 0.022222222222222223,
+    "flag_counts": {
+     "xg": 88,
+     "citation": 89,
+     "format": 90,
+     "unsupported_name": 2
+    }
+   },
+   "partial": {
+    "n": 1,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.0,
+    "refusal_rate": 0.0,
+    "has_citation": 0.0,
+    "flag_counts": {
+     "outcome": 1,
+     "unsupported_name": 1,
+     "citation": 1,
+     "format": 1
+    }
+   },
+   "refuse": {
+    "n": 9,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.6666666666666666,
+    "refusal_rate": 0.0,
+    "has_citation": 0.0,
+    "flag_counts": {
+     "format": 9,
+     "unsupported_minute": 1,
+     "unsupported_name": 2
+    }
+   },
+   "supported_answer_or_partial": {
+    "n": 91,
+    "strict_pass": 0.0,
+    "grounding_only_pass": 0.0,
+    "refusal_rate": 0.0,
+    "has_citation": 0.02197802197802198,
+    "flag_counts": {
+     "xg": 88,
+     "citation": 90,
+     "format": 91,
+     "unsupported_name": 3,
+     "outcome": 1
+    }
+   }
+  }
+ }
+}

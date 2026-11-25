@@ -1,0 +1,22 @@
+{
+ "seed": 42,
+ "model": "google/flan-t5-base",
+ "decoding": {
+  "num_beams": 4,
+  "max_new_tokens": 128,
+  "no_repeat_ngram_size": 3,
+  "do_sample": false
+ },
+ "device": "cuda",
+ "python": "3.14.6",
+ "torch": "2.14.1+cu130",
+ "transformers": "5.20.2",
+ "numpy": "2.5.3",
+ "files": {
+  "val_inputs": "d49ba60f0370484f3a4d1e38708aa111649de8486de7532cab7e0e41841a10d1",
+  "grounding_py": "79d4eae357e8eab38a298859150f20660750d7622338739b09282202fd6be7c9",
+  "gen_format_py": "f5ebe67cce98f0eae6aec4875fbee3f03037c36f881f77c20d034f750bfd9fff",
+  "script": "3ec848dbe2151026f289291871be61a89767c171cc880e85963b32bef7ed4416"
+ },
+ "eval_file_read": false
+}

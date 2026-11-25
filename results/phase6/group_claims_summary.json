@@ -1,0 +1,43 @@
+{
+ "C": {
+  "n_with_evidence": 130,
+  "with_group_error": 69,
+  "among_checker_passed": 66,
+  "n_checker_passed": 115,
+  "by_type": {
+   "ordering": 55,
+   "all_goal": 4,
+   "all_saved": 2,
+   "all_blocked": 0,
+   "all_foot": 6,
+   "all_area": 18
+  }
+ },
+ "D": {
+  "n_with_evidence": 130,
+  "with_group_error": 0,
+  "among_checker_passed": 0,
+  "n_checker_passed": 130,
+  "by_type": {
+   "ordering": 0,
+   "all_goal": 0,
+   "all_saved": 0,
+   "all_blocked": 0,
+   "all_foot": 0,
+   "all_area": 0
+  }
+ },
+ "vs_audit": {
+  "n_audited": 45,
+  "unfaithful_labelled": 30,
+  "of_which_rule_flags": 21,
+  "faithful_labelled": 15,
+  "faithful_but_rule_flags": 0
+ },
+ "gen50_C": {
+  "n_with_evidence": 41,
+  "with_group_error": 24,
+  "among_checker_passed": 22,
+  "n_checker_passed": 36
+ }
+}

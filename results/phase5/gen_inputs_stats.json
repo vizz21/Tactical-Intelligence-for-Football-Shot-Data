@@ -1,0 +1,70 @@
+{
+  "eval_sha256": "33e693938484937ef0dc69e2d840ea9a5a876ff190cd4883b24e3acad1bac0aa",
+  "train": {
+    "n": 1000,
+    "modes": {
+      "answer": 900,
+      "partial": 16,
+      "refuse": 84
+    },
+    "kinds": {
+      "bank": 450,
+      "off_topic": 50,
+      "partial": 16,
+      "template": 450,
+      "unsupported_minute": 17,
+      "unsupported_player": 17
+    },
+    "tokens_mean": 282.414,
+    "tokens_p95": 363.04999999999995,
+    "tokens_max": 450,
+    "n_over_512": 0,
+    "n_with_unk_tokens": 0,
+    "mean_relevant_in_top3": 0.9625925925925927
+  },
+  "val": {
+    "n": 100,
+    "modes": {
+      "answer": 90,
+      "partial": 1,
+      "refuse": 9
+    },
+    "kinds": {
+      "bank": 45,
+      "off_topic": 5,
+      "partial": 1,
+      "template": 45,
+      "unsupported_minute": 2,
+      "unsupported_player": 2
+    },
+    "tokens_mean": 289.05,
+    "tokens_p95": 367.59999999999997,
+    "tokens_max": 412,
+    "n_over_512": 0,
+    "n_with_unk_tokens": 0,
+    "mean_relevant_in_top3": 0.9296296296296295
+  },
+  "eval": {
+    "n": 143,
+    "modes": {
+      "answer": 126,
+      "partial": 4,
+      "refuse": 13
+    },
+    "kinds": {
+      "fresh_far": 13,
+      "fresh_near": 15,
+      "off_topic": 5,
+      "partial": 4,
+      "template": 100,
+      "unsupported_minute": 3,
+      "unsupported_player": 3
+    },
+    "tokens_mean": 285.8881118881119,
+    "tokens_p95": 370.40000000000003,
+    "tokens_max": 413,
+    "n_over_512": 0,
+    "n_with_unk_tokens": 0,
+    "mean_relevant_in_top3": 0.8650793650793651
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "split": "val",
+  "n_answers_with_evidence": 91,
+  "detection": {
+    "xg_changed": {
+      "n": 91,
+      "caught": 84,
+      "rate": 0.923
+    },
+    "outcome_swapped": {
+      "n": 69,
+      "caught": 68,
+      "rate": 0.986
+    },
+    "team_replaced": {
+      "n": 81,
+      "caught": 74,
+      "rate": 0.914
+    },
+    "citation_out_of_range": {
+      "n": 91,
+      "caught": 91,
+      "rate": 1.0
+    },
+    "yards_changed": {
+      "n": 52,
+      "caught": 52,
+      "rate": 1.0
+    },
+    "player_replaced": {
+      "n": 88,
+      "caught": 88,
+      "rate": 1.0
+    },
+    "minute_changed": {
+      "n": 28,
+      "caught": 28,
+      "rate": 1.0
+    }
+  },
+  "examples_not_caught": {
+    "team_replaced": [
+      [
+        "val-0003",
+        "Liverpool had three saved shots from inside the box in these results. The best chance was [2], a left-footed effort by Rikke Marie Madsen in minute 53 with an xG of 0.22, followed by [1] at 0.11 and [3] at 0.08."
+      ],
+      [
+        "val-0013",
+        "Juventus left-sided shots from inside the box produced two saves and one goal. [1] by Esther Gonzalez Rodriguez (xG 0.09) and [2] by Claudia Pina Medina (xG 0.12) were saved, while Olga Carmona Garcia's [3] in minute 28, with an xG of 0.06, went in."
+      ],
+      [
+        "val-0036",
+        "Liverpool goals, all three left-footed from a central position inside the box. Antoine Griezmann scored twice, [1] in minute 62 (xG 0.15) and [3] in minute 11 (xG 0.40), and Lionel Andres Messi Cuccittini added [2] in minute 34 (xG 0.16)."
+      ]
+    ],
+    "xg_changed": [
+      [
+        "val-0006",
+        "These are three Clermont Foot shots from outside the box, but the outcomes differ: [1] was wayward (xG 0.08), [2] was blocked (xG 0.08) and [3] was saved (xG 0.06). Two of them, [1] and [2], were taken by Johan Gastien, with the first coming in minute 9 and the second in minute 38."
+      ],
+      [
+        "val-0018",
+        "The three FSV Mainz 05 shots are right-footed and central, but only [1] came from inside the box. [1] was blocked from 9 yards with an xG of 0.09, whereas [2] (xG 0.09) was saved from 25 yards and [3] (xG 0.03) was blocked from 22 yards."
+      ],
+      [
+        "val-0033",
+        "England Women's central shots that were saved: Alessia Russo's effort [3] in minute 81 had the best xG at 0.36, and her other save [2] in minute 57 was rated 0.08. [1] by Lauren Hemp from 11 yards completes the set with an xG of 0.18."
+      ]
+    ],
+    "outcome_swapped": [
+      [
+        "val-0044",
+        "Hoffenheim's blocked shots from outside the box are [1] by Anton Stach (xG 0.03) and [2] by Maximilian Beier (xG 0.03). Result [3], by Andrej Kramaric from 20 yards, does not match the outcome requested: it was blocked, with an xG of 0.11."
+      ]
+    ]
+  }
+}

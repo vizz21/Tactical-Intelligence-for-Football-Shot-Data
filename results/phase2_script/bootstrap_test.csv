@@ -1,0 +1,7 @@
+comparison,metric,mean_diff,ci_low,ci_high,ci_excludes_0
+ANN - logistic,ll,-0.0007,-0.0045,0.003,False
+ANN - logistic,auc,0.003,-0.0073,0.0145,False
+CNN - ANN,ll,0.0053,-0.0028,0.0139,False
+CNN - ANN,auc,-0.0174,-0.0416,0.0053,False
+CNN - logistic,ll,0.0047,-0.0039,0.0133,False
+CNN - logistic,auc,-0.0144,-0.0366,0.0087,False

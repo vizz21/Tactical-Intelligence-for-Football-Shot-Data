@@ -1,0 +1,23 @@
+{
+ "seed": 42,
+ "model": "google/flan-t5-base",
+ "lr": 0.0003,
+ "epochs_max": 8,
+ "patience": 2,
+ "batch": 4,
+ "accum": 2,
+ "precision": "bf16 autocast, fp32 weights",
+ "device": "cuda",
+ "python": "3.14.6",
+ "torch": "2.14.1+cu130",
+ "transformers": "5.20.2",
+ "files": {
+  "train_targets": "ad6db9cfac6a3d37d4253f591450f2264050677bba469f29abe89dcb254e0f88",
+  "val_targets": "b68fdecab6c9b6d90fe1c9879213421c6c17859d4b0a26e8ae82267f69b7aa2a",
+  "val_inputs": "d49ba60f0370484f3a4d1e38708aa111649de8486de7532cab7e0e41841a10d1",
+  "grounding_py": "79d4eae357e8eab38a298859150f20660750d7622338739b09282202fd6be7c9",
+  "script": "b639216b09a4fb0d01c40fc466ddec1053c4c0e12e35864482b6dc74f87db6b2",
+  "checkpoint_weights": "187454d13edaa096bd92c6a3215567298bb281846c352bbd5b819aa6c2572b76"
+ },
+ "eval_file_read": false
+}

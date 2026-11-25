@@ -1,0 +1,99 @@
+{
+  "split": "train",
+  "n_answers_with_evidence": 915,
+  "detection": {
+    "xg_changed": {
+      "n": 915,
+      "caught": 862,
+      "rate": 0.942
+    },
+    "outcome_swapped": {
+      "n": 735,
+      "caught": 732,
+      "rate": 0.996
+    },
+    "yards_changed": {
+      "n": 520,
+      "caught": 520,
+      "rate": 1.0
+    },
+    "player_replaced": {
+      "n": 914,
+      "caught": 905,
+      "rate": 0.99
+    },
+    "team_replaced": {
+      "n": 896,
+      "caught": 695,
+      "rate": 0.776
+    },
+    "citation_out_of_range": {
+      "n": 915,
+      "caught": 915,
+      "rate": 1.0
+    },
+    "minute_changed": {
+      "n": 22,
+      "caught": 22,
+      "rate": 1.0
+    }
+  },
+  "examples_not_caught": {
+    "team_replaced": [
+      [
+        "train-0003",
+        "Liverpool had three saved shots from the left side, all from inside the box. Ivan Perisic's left-footed effort [1] from 14 yards has an xG of 0.08, Mateo Kovacic's left-footed shot [2] from 19 yards has 0.07, and Kovacic's other attempt [3], this time with the right foot from 24 yards, has 0.03."
+      ],
+      [
+        "train-0012",
+        "Juventus's three attempts from outside the box all missed the target, and none has an xG above 0.03. The furthest was [2] by Maximilian Arnold from 46 yards, with an xG of 0.00; Mattias Svanberg took the other two, [1] from 23 yards (0.02) and [3] from 27 yards (0.03)."
+      ],
+      [
+        "train-0018",
+        "Liverpool had three saved shots in these results. [1] by Andrei Florin Ratiu (xG 0.08) and [3] by Denis Mihai Dragus (xG 0.08) were right-footed, while [2] by Dennis Man was a left-footed shot from 23 yards (xG 0.04)."
+      ]
+    ],
+    "xg_changed": [
+      [
+        "train-0004",
+        "One of the three Norway Women's shots from a central position inside the box was a goal: [2] by Sophie Roman Haug from 9 yards, with an xG of 0.12. [1] by Ada Stolsmo Hegerberg (xG 0.25) and [3] by Tuva Hansen (xG 0.25) both went off target."
+      ],
+      [
+        "train-0028",
+        "AC Ajaccio's right-footed shots here all came from outside the box. [1] by Bevic Moussiti-Oko was blocked (xG 0.04), while Mickael Barreto's [2] and [3] went off target, from 21 and 34 yards (xG 0.08 and 0.08)."
+      ],
+      [
+        "train-0038",
+        "Norway Women's scored all three of these left-footed goals from inside the box. Frida Maanum scored two, [2] with an xG of 0.34 and [3] with 0.12, and Sophie Roman Haug scored [1] with an xG of 0.19."
+      ]
+    ],
+    "outcome_swapped": [
+      [
+        "train-0024",
+        "Germany's left-footed shots from inside the box were not goals: [1] by Kai Havertz was blocked (xG 0.06), [2] by Kai Havertz was blocked (xG 0.14) and [3] by Serge Gnabry was saved (xG 0.14). The three have a mean xG of 0.11."
+      ],
+      [
+        "train-0033",
+        "Two of the three results are South Africa Women's left-footed shots from outside the box, and both were saved: [1] by Wendy Shongwe (xG 0.11) and [2] by Hildah Tholakele Magaia from 38 yards (xG 0.01). Result [3] is by Sakina Ouzraoui Diki for Morocco Women's, so it is not from the team asked for; it was blocked with an xG of 0.05."
+      ],
+      [
+        "train-0212",
+        "Two of the three results are France goals from outside the box: [1] by Paul Pogba from 26 yards (xG 0.04) and [2] by Aurelien Djani Tchouameni from 28 yards (xG 0.03). Result [3] by Ousmane Dembele does not match the request, because it was blocked (xG 0.08)."
+      ]
+    ],
+    "player_replaced": [
+      [
+        "train-0079",
+        "England's left-footed shots from outside the box include one goal: [1] by Harry Kane from 23 yards, with an xG of 0.12. [2] by Jude Bellingham (xG 0.05) and [3] by Phil Foden from 32 yards (xG 0.01) both went off target."
+      ],
+      [
+        "train-0121",
+        "England's three saved left-footed shots came from different spots. [2] by Jude Bellingham was from inside the box, 17 yards out (xG 0.11), while [1] by Harry Kane from 27 yards (xG 0.04) and [3] by Harry Kane from 22 yards (xG 0.05) were taken from outside it."
+      ],
+      [
+        "train-0128",
+        "England's three saved shots from inside the box were all right-footed and all from a central position. The best chance was [3] by Raheem Sterling from 9 yards (xG 0.35), then [2] by Phil Foden from 8 yards (xG 0.25) and [1] by Harry Kane from 18 yards (xG 0.07)."
+      ]
+    ]
+  }
+}

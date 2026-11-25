@@ -1,0 +1,22 @@
+{
+  "name": "lexicon_backstop",
+  "backstop": 0.6203552484512329,
+  "chosen": "(b) lexicon + backstop",
+  "eval_counts": {
+    "long": 18,
+    "named": 3,
+    "off": 13,
+    "off_hard": 6,
+    "short": 48,
+    "tmpl1": 42,
+    "tmpl2": 303,
+    "tmpl3": 795,
+    "unsupported": 8
+  },
+  "group_thresholds_fitted": {
+    "0": 0.1962915062904358,
+    "1": 0.4321191608905792,
+    "2": 0.5995873212814331,
+    "3+": 0.6887895464897156
+  }
+}
